@@ -1,0 +1,32 @@
+<div class="bg-container">
+  <div class="overlay"></div>
+  <div class="container position-relative z-10">
+    <div class="row justify-content-center align-items-center vh-100">
+      <div class="col-md-6 text-center">
+        <% if notice %>
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <%= notice %>
+          </div>
+        <% end %>
+
+        <% if alert %>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <%= alert %>
+          </div>
+        <% end %>
+        <h1 class="mb-5 text-white display-4">NASA Astronomy Picture of the Day</h1>
+        
+        <div class="card bg-light bg-opacity-50 p-5 rounded-4 shadow-lg">
+          <%= form_tag('/search', method: :post, class: 'd-flex flex-column align-items-center') do %>
+            <div class="mb-4 w-100">
+              <%= label_tag :date, "Escolha uma data", class: "form-label text-white" %>
+              <%= date_field_tag :date, nil, required: true, class: "form-control form-control-lg text-center", placeholder: "select a date" %>
+            </div>
+            
+            <%= submit_tag "Search Image", class: "btn btn-primary btn-lg px-5 rounded-pill" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

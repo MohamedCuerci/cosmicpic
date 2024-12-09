@@ -1,0 +1,21 @@
+<div class="apod-container" style="background-image: url('<%= @apod.image_url %>?w=800'); background-size: cover; background-position: center; min-height: 100vh; position: relative;">
+  <div class="position-absolute top-0 start-0 m-3">
+    <%= link_to root_path, class: "btn btn-light mb-3" do %>
+      <i class="fas fa-arrow-left me-2"></i>Back to search
+    <% end %>
+  </div>
+  <div class="explanation-box">
+    <h1 class="text-white mb-3"><%= @apod.title %></h1>
+    <div class="explanation-content">
+      <%= @apod.explanation %>
+    </div>
+  </div>
+</div>
+
+<style>
+  @media (max-width: 768px) {
+    .apod-container {
+      background-image: url('<%= @apod.image_url %>?w=400');
+    }
+  }
+</style>
